@@ -20,4 +20,10 @@ define('PI', 3.1416);
     $numeros = "1,2,3,4,5";
     $arrayNumeros = explode(",", $numeros);
     $numeros2 = implode("+", $arrayNumeros);
-    echo $numeros2;
+    echo $numeros2 . "<br>";
+    $suma = 0;
+    foreach($arrayNumeros as $num){
+        
+        $suma += $num;
+    }
+    echo $numeros2 . " = $suma <br>";
