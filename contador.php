@@ -11,11 +11,8 @@ while ($contador > 0) {
 }
 echo "<br>";
 
-$numeros = [1, 2, 3, 4, 5];
 
-for ($i = 0; $i < count($numeros); $i++) {
-    echo $numeros[$i] . " ";
+for ($i = 1; $i <= 100; $i++) {
+    echo "$i, ";
 }
-echo "<br>";
-
 
