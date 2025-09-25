@@ -18,18 +18,4 @@ for ($i = 0; $i < count($numeros); $i++) {
 }
 echo "<br>";
 
-foreach ($numeros as $numero) {
-    echo $numero . " ";
-}
-echo "<br>";
 
-$persona = [
-    "nombre" => "Juan",
-    "edad" => 30,
-    "ciudad" => "Madrid"
-];
-
-foreach ($persona as $key => $value) {
-    echo "$key: $value <br>"; 
-}
-echo "<br>";
