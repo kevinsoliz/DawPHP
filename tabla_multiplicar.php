@@ -7,9 +7,9 @@ for ($i = 0; $i < 10; $i++){
     }
 }
 
-for ($i = 0; $i < 10; $i++){
+for ($i = 0; $i < count($tablaMultiplicar); $i++){
     echo "Tabla del $i: <br>";
-    for($j = 0; $j < 10; $j++){
+    for($j = 0; $j < count($tablaMultiplicar); $j++){
         echo "$i x $j = " . $tablaMultiplicar[$i][$j] . "<br>";
     }
     echo "<br>";

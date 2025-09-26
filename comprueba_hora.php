@@ -6,7 +6,7 @@
 /*
 "/^(\d{2}):/
 */
-$horaCompleta = "24:59:24";
+$horaCompleta = "23:59:24";
 
 $horaCorrecta = preg_match("/^(\d{2}):(\d{2}):(\d{2})$/", $horaCompleta, $arrayHora);
 
