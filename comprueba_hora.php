@@ -6,17 +6,16 @@
 /*
 "/^(\d{2}):/
 */
-$horaCompleta = "21:599:24";
+$horaCompleta = "24:59:24";
 
 $horaCorrecta = preg_match("/^(\d{2}):(\d{2}):(\d{2})$/", $horaCompleta, $arrayHora);
 
 
     if($horaCorrecta){
         
-        $hora = (int)$arrayHora[1];
-        $minuto = (int)$arrayHora[2];
-        $segundo = (int)$arrayHora[3];
-
+        $hora = $arrayHora[1];
+        $minuto = $arrayHora[2];
+        $segundo = $arrayHora[3];
         if($hora >= 0 && $hora < 24){
             if($minuto >= 0 && $minuto < 60){
                 if($segundo >= 0 && $segundo < 60){

@@ -22,6 +22,7 @@ define('PI', 3.1416);
     $numeros2 = implode("+", $arrayNumeros);
     echo $numeros2 . "<br>";
     $suma = 0;
+    
     foreach($arrayNumeros as $num){
         
         $suma += $num;
