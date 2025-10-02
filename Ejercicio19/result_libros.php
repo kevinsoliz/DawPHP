@@ -4,8 +4,12 @@
         $textoBusqueda = $_POST["TextoBusqueda"];
         $buscarEn = $_POST["BuscarEn"];
         $tipoLibro = $_POST["TipoLibro"];
-        echo  $textoBusqueda . "<br>";
-        echo  $buscarEn . "<br>";
-        echo  $tipoLibro . "<br>";
+        echo "<h2>Resultados del formulario de búsqueda</h2>";
+        echo "<p>Estos son los datos introducidos:</p>";
+        echo "<ul>
+                <li>$textoBusqueda</li>
+                <li>$buscarEn</li>
+                <li>$tipoLibro</li>
+            </ul>";
     }
     
