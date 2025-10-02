@@ -1,6 +1,6 @@
 <?php
 
-   if(isset($_POST["buscar"])){
+   if(isset($_POST)){
         $textoBusqueda = $_POST["TextoBusqueda"];
         $buscarEn = $_POST["BuscarEn"];
         $tipoLibro = $_POST["TipoLibro"];

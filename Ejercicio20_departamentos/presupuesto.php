@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["enviar"])){
+if(isset($_POST)){
         $departamento = $_POST["departamento"];
         $presupuesto = strtoupper($departamento) . ":";
 
