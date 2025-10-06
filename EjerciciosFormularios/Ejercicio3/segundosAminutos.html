@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Convierte segundos a minutos</h1>
+    <legend>
+      Escribe una cantidad de segundos y la convertirá en minutos y segundos.
+    </legend>
+    <form action="convertir.php" method="post">
+      <label for="segundos">Segundos</label>
+      <input
+        type="number"
+        name="segundos"
+        placeholder="segundos"
+        min="0"
+        max="10000"
+      />
+      <button type="submit">Convertir</button>
+    </form>
+  </body>
+</html>

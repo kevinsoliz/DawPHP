@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+    <style>
+      form {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <legend>Datos del empleado</legend>
+    <form action="mejorarSalario.php" method="post">
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" required />
+
+      <label for="apellidos">Apellidos</label>
+      <input type="text" name="apellidos" required />
+
+      <label for="edad">Edad</label>
+      <input type="number" name="edad" required />
+
+      <label for="salario">Salario</label>
+      <input type="number" name="salario" required />
+
+      <button type="submit">ENVIAR</button>
+    </form>
+  </body>
+</html>
