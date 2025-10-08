@@ -4,6 +4,7 @@
         width: 50%;
     }
 </style>
+
 <?php
 
 if ($_POST) {
@@ -21,9 +22,10 @@ if ($_POST) {
     }
 
     echo "<ul><li>$presupuesto</li></ul>";
-} else { ?>
+} 
+else { ?>
 
-    <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="post">
+    <form action=<?php echo $_SERVER["PHP_SELF"]?> method="post">
         <label for="departamentos">Departamento:</label>
         <select name="departamento" id="departamentos">
             <option value="Informática">Informática</option>
