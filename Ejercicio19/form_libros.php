@@ -23,6 +23,3 @@
 
 </form>
 
-<?php
-    include("result_libros.php");
-?>

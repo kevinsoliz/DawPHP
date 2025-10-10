@@ -18,12 +18,12 @@
     <h2>Convierte pies y pulgadas a centimetros</h2>
     <fieldset>
     <legend>Escribe una distancia en pies y pulgadas y la convertirá a centimetros.</legend>
-    <form action="convertir.php" method="post">
+    <form action="validador.php" method="post">
         <label for="pies">Pies</label>
-        <input type="number" name="pies" placeholder="pies" min="0" max="1000" />
+        <input type="text" name="pies" placeholder="pies"/>
 
         <label for="pulgadas">Pulgadas</label>
-        <input type="number" name="pulgadas" placeholder="pulgadas" min="0" max="1000" />
+        <input type="text" name="pulgadas" placeholder="pulgadas"/>
 
         <button type="submit">Convertir</button>
     </form>
