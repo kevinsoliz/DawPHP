@@ -5,7 +5,7 @@ if (isset($_POST)) {
     $pulgadas = $_POST['pulgadas'];
 
     try{ 
-        //la 
+       
         if (empty($pies && $pulgadas)) //Verifica si las variables están vacías.
             throw new Exception("Rellena el formulario.");
 

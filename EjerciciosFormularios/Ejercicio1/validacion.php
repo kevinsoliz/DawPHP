@@ -17,7 +17,7 @@ if($_POST){
                 throw new Exception("Introduce un número válido o distinto de 0 para el campo de altura.");
             }
     
-            if(!is_numeric($peso && $peso <= 0)){
+            if(!is_numeric($peso) && $peso <= 0){
                 throw new Exception("Introduce un número válido o distinto de 0 para el campo de peso.");
             }
     
@@ -31,7 +31,7 @@ if($_POST){
                 //Llamada a la función.
                 $imc = imc($altura, $peso);
             
-                echo "Con un peso de $peso kg y una altura de " . $altura * 100 . " cm, tu índice de masa corporal es $imc";
+                echo "Con un peso de $peso kg y una altura de " . $altura . " cm, tu índice de masa corporal es $imc";
             
             //Captura la excepción y redirige al usuario a la página del formulario.
         }    
