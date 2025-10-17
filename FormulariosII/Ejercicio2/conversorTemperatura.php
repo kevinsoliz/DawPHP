@@ -1,13 +1,14 @@
 <?php
 
     function conversorTemperatura($temperatura, $tipoTemperatura){
-        $resultado = 0;
 
-        if($tipoTemperatura === 'celsius')
+        if($tipoTemperatura === 'ºC'){
             $resultado = ($temperatura * (9 / 5)) + 32;
+            echo "$temperatura$tipoTemperatura son $resultado"."ºF";
+        }
 
-        else
+        else{
             $resultado = ($temperatura - 32) * (5 / 9);
-
-        return $resultado;
+            echo "$temperatura$tipoTemperatura son $resultado"."ºC";
+        }
     }

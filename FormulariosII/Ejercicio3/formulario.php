@@ -16,15 +16,11 @@
     </style>
 </head>
 <body>
-    <legend>Conversor de temperatura</legend>
-    <p>Escribe una temperatura &#40;Celsius o Farenheit&#41; y la convertiré a la otra unidad &#40;Celsius o Farenheit&#41; </p>
+    <legend>Conversor de distancias</legend>
+    <p>Escribe una distancia&#40;en centímetros&#41; y la convertiré a kilómetros, metros y centímetros.</p>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="temperatura">Temperatura</label>
-    <input type="text" id="temperatura" name="temperatura">
-    <select name="tipoTemperatura">
-        <option value="ºC">Celsius</option>
-        <option value="ºF">Farenheit</option>
-    </select>
+    <label for="distancia">Distancia</label>
+    <input type="text" id="distancia" name="distancia">
     <button type="submit">Convertir</button>
     </form>
 </body>
@@ -33,23 +29,22 @@
 <?php
 
     // Incluye el archivo con las funciones
-    include_once 'conversorTemperatura.php';
+    include_once 'conversorDistancia.php';
 
     // Procesa el formulario si se ha enviado
     if ($_POST) {
-        $temperatura = $_POST['temperatura']; 
-        $tipoTemperatura = $_POST['tipoTemperatura'];
+        $distancia = $_POST['distancia']; 
 
         try {
 
-            if(empty($tipoTemperatura))
+            if(empty($distancia))
               throw new Exception("Rellena el formulario.");
 
-            else if (!is_numeric($temperatura)) 
+            else if (!is_numeric($distancia)) 
                 throw new Exception("Introduce un número válido");
 
             else {
-                conversorTemperatura($temperatura, $tipoTemperatura); 
+                conversorDistancia($distancia); 
             }
                 
             
