@@ -12,12 +12,12 @@
             $kilometros = round($distancia / 100000);
             $centimetros = $distancia % 100000;
             $metros = round($centimetros / 100);
-            $centimetros2 = $centimetros % 100;
+            $restoCm = $centimetros % 100;
             
 
             
 
-            echo "$distancia cm son $kilometros km, $metros m y $centimetros2 cm.";
+            echo "$distancia cm son $kilometros km, $metros m y $restoCm cm.";
         }
 
     
