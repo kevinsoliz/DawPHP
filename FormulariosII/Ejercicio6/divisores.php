@@ -9,4 +9,3 @@ function divisores($numero){
     echo $mensaje;
 }
 
-divisores(200);

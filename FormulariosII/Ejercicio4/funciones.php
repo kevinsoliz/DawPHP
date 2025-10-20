@@ -15,4 +15,3 @@ function sumatorio($numero){
     return $total;
 }
 
-echo sumatorio(100);
