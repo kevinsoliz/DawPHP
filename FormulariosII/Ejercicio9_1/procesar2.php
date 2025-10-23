@@ -12,46 +12,54 @@
             if(empty($numeros))
               throw new Exception("Rellena todos los números.");
 
-            else if ($sonNumeros){
-               foreach($numeros as $elemento){
-                if(!is_numeric($elemento)){
-                    throw new Exception("Este valor: $elemento es inválido.");
-                    break;
-                }
+            if ($sonNumeros){
+                $contador = 0;
+
+                while($sonNumeros && $contador < count($numeros)){
+                    if(!is_numeric($numeros[$contador])){
+                        throw new Exception ("El valor " . $numeros[$contador] . " no es válido.");
+                        
+                    }
+                    $contador++;
                }
+               
             }
                    
-            else {
+            
                 echo "Los valores introducidos son ";
                     foreach($numeros as $num)
                         echo "$num  ";
+                echo "<br>";
 
 
                foreach($opciones as $opcion){
 
-                switch($opcion){
-                    case 'suma':
-                       echo "La suma de los valores es " . suma($numeros);
-                       break;
-                    case "media":
-                        echo "La media de los valores es " . media($numeros);
+                    switch($opcion){
+                        case 'suma':
+                        echo "La suma de los valores es " . suma($numeros) . "<br>";
                         break;
-                    case "maximo":
-                        echo "El valor más grande es " .  maximo($numeros);
-                        break;
-                    case "minimo":
-                        echo "El valor más pequeño es " . minimo($numeros);
-                        break;
-                        
-                }
+                        case "media":
+                            echo "La media de los valores es " . media($numeros) . "<br>";
+                            break;
+                        case "maximo":
+                            echo "El valor más grande es " .  maximo($numeros) . "<br>";
+                            break;
+                        case "minimo":
+                            echo "El valor más pequeño es " . minimo($numeros) . "<br>";
+                            break;
+                        default:
+                            echo ":(";
+                            break;
+                            
+                    }
                }
-            }
+            
                 
             
         } 
         catch (Exception $e){
             $mensaje = "<p style='color:red;'>Error: " . htmlspecialchars($e->getMessage()) . "</p>";
             echo $mensaje;
-            header("refresh: 3 url=formulario.php");
+            header("refresh: 5 url=formulario.php");
         }
     }

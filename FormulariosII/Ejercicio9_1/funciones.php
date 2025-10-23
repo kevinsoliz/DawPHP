@@ -34,7 +34,7 @@ function minimo($array){
 }
 
 function mostrarFormulario($cantidad){
-    echo "<form action='procesar2.php' method='post'"
+   echo "<form action='procesar2.php' method='post'>";
     for($i = 1; $i <= $cantidad; $i++){
         echo "    
             <label for='numero'>Numero$i</label>
@@ -42,16 +42,18 @@ function mostrarFormulario($cantidad){
             <br>
         ";
     }
-    echo'
-        <label for="suma" class="label-inline">Suma</label>
-        <input type="checkbox" id="suma" name="opcion[]">
-        <label for="media" class="label-inline">Media</label>
-        <input type="checkbox" id="media" name="opcion[]">
-        <label for="maximo" class="label-inline">Máximo</label>
-        <input type="checkbox" id="maximo" name="opcion[]">
-        <label for="minimo" class="label-inline">Mínimo</label>
-        <input type="checkbox" id="minimo" name="opcion[]">
-        ';
-    echo "</form>"
+    echo"
+        <label for='suma' class='label-inline'>Suma</label>
+        <input type='checkbox' id='suma' name='opcion[]' value='suma'>
+        <label for='media' class='label-inline'>Media</label>
+        <input type='checkbox' id='media' name='opcion[]' value='media'>
+        <label for='maximo' class='label-inline'>Máximo</label>
+        <input type='checkbox' id='maximo' name='opcion[]' value='maximo'>
+        <label for='minim' class='label-inline'>Mínimo</label>
+        <input type='checkbox' id='minimo' name='opcion[]' value='minimo'>
+        <button type='submit' name='enviar'>Calcular entrada</button>
+        ";
+    echo "</form>";
+
 }
 

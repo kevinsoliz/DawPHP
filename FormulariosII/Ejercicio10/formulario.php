@@ -15,14 +15,14 @@
     </style>
 </head>
 <body>
-     <legend>Calculos estadísticos</legend>
+     <legend>Dibujar columnas</legend>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <p>Escribe cuántos valores quieres introducir.</p>
-        <label for="cantidad">Cantidad</label>
-        <input type="text" id="cantidad" name="cantidad">
+        
+        <label for="columnas">Número de columnas</label>
+        <input type="text" id="columnas" name="columna">
 
-        <button type="submit">Mostrar formulario de entrada</button>
+        <button type="submit">Dibujar</button>
 
     </form>
    
@@ -32,25 +32,25 @@
 <?php
 
      // Incluye el archivo con las funciones
-    include_once 'funciones.php';
+    include_once 'funcion.php';
 
     // Procesa el formulario si se ha enviado
     if ($_POST) {
-        $cantidad = $_POST['cantidad'];
+        $columnas = $_POST['columna'];
 
         try {
 
-            if(empty($cantidad))
-              throw new Exception("Indica una cantidad.");
+            if(empty($columnas))
+              throw new Exception("Indica una número de columnas.");
 
-            else if (!is_numeric($cantidad)) 
+            else if (!is_numeric($columnas)) 
                 throw new Exception("Introduce un número válido.");
             
-            else if ($cantidad <= 0)
+            else if ($columnas <= 0)
                 throw new Exception("Debe ser mayor que 0. ");
 
             else {
-               mostrarFormulario($cantidad);
+               dibujarColumnas($columnas);
             }
                 
             
