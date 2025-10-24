@@ -1,10 +1,11 @@
 <?php
 
 function esPrimo($numero){
+    $divisores = 0;
     for($i = 2; $i < $numero ; $i++){
         if($numero % $i == 0)
-            echo "El número $i no es primo.";
+           $divisores++;
     }
-    echo "El número $numero es primo.";
+    return $divisores === 0;
 }
 

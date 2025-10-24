@@ -51,7 +51,11 @@
                 throw new Exception("Debe ser mayor que 0. ");
 
             else {
-               esPrimo($numero);
+                if(esPrimo($numero))
+                    echo "El número $numero es primo";
+                else
+                    echo "El número $numero no es primo";
+                
             }
                 
             
