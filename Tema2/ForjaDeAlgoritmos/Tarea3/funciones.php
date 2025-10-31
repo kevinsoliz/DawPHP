@@ -1,6 +1,5 @@
 <?php
 
-
 function agregarItem($inventario, $nombre, $cantidad, $rareza){
     static $contador = 0;
     $indice = $contador++;
