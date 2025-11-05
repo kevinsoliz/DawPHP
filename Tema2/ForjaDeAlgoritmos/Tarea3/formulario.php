@@ -24,15 +24,11 @@
     <input type="text" id="cantidad" name="cantidad">
 
     <label for="rareza">Rareza</label>
-    <div id="rareza">
-
-        <label for="comun" class="label-inline">Común</label>
-        <input type="radio" name="rareza" value="comun" id="comun">
-        <label for="raro" class="label-inline">Raro</label>
-        <input type="radio" name="rareza" value="raro" id="raro">
-        <label for="epico" class="label-inline">Épico</label>
-        <input type="radio" name="rareza" value="epico" id="epico">
-    </div>
+    <select name="rareza" id="rareza">
+        <option value="1">Común</option>
+        <option value="2">Raro</option>
+        <option value="3">Épico</option>
+    </select>
     <button type="submit">Enviar</button>
 </form>
 
