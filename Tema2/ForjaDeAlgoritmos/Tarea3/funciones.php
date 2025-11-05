@@ -23,6 +23,7 @@ function obtenerRarezaValor($rareza){
 
     else
         $valor = 3;
+    
 
     return $valor;
 }   

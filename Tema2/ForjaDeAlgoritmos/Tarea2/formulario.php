@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<legend>El Cifrado del Barón Rojo</legend>
+<legend>El Reloj del Cronometrador: Procesamiento Iterativo de Múltiples Entradas</legend>
 
 <form method="post" action="<?php
 echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
