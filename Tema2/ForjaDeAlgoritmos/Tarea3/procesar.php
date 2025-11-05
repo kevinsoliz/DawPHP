@@ -11,7 +11,7 @@ if($_POST){
 
 
     $inventario = agregarItem($inventario, $nombre, $cantidad, $rareza);
-    $inventario = agregarItem($inventario, $nombre, $cantidad, $rareza);
+    
 
     foreach($inventario as $clave => $valores){
         echo $clave . ": ";
