@@ -22,22 +22,17 @@ session_start();
 
 if($_POST){
 
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];  
+    $usu = $_POST['usuario'];
+    $pass = $_POST['password'];  
 
     $usuarios = file('usuarios.txt', FILE_IGNORE_NEW_LINES);
-    $user = explode(':', $usuarios[0]);
-    
+   
 
-    foreach ($usuarios as $usuarioIndividual){
+    foreach ($usuarios as $usuario){
 
-        $user = explode(':', trim($usuarioIndividual)); // Se separan ambos datos y se quitan los espacios con trim
+        if ($usuario == $usu . ":" . $pass){
 
-       // echo $user[0] . ' : ' . $user[1] . '<br>':
-        // if ($usuario == $usu . ":" . $pass){}
-
-        if($usuario === $user[0] && $password === $user[1]){
-            $_SESSION['loginusu'] = $usuarioIndividual; //Creamos la sesión
+            $_SESSION['loginusu'] = $usu; //Creamos la sesión
             header("Location: index.php");
         }
         
