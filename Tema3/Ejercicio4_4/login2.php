@@ -55,7 +55,29 @@ if ($_POST) {
                         echo 'No forma parte del personal del instituto';
                 }
             
-            } else { 
+            } 
+
+            else if ($sql -> rowCount() < 0) {
+                
+                try {
+                
+                    $consulta = "SELECT * from alumno WHERE usuario=:nombre AND password=:pass AND rol=:rol";
+
+                    $sql = $conn->prepare($consulta);
+                    $sql->bindParam(":nombre", $nombre);
+                    $sql->bindParam(":pass", $password);
+                    $sql->bindParam(":rol", $rol);
+                
+                    $sql->execute();
+                
+                } catch (PDOException $e){
+                
+                    echo $e->getMessage();
+                
+                }
+            }
+            
+            else { 
                 // Autenticación fallida 
                 $_SESSION['error_message'] = 'Usuario o contraseña incorrectos.';
 
