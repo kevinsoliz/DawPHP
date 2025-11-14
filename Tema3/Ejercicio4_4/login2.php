@@ -33,9 +33,9 @@ if ($_POST) {
             
                 $sql->execute();
             
-            } catch (PDOException $e){
+            } catch (PDOException $e){ // Aunque el profesor no esté en esa tabla no lanza error.
             
-                echo $e->getMessage();
+                echo 'Te he pillado bacalao.'. $e->getMessage();
             
             }
             
@@ -57,11 +57,11 @@ if ($_POST) {
             
             } 
 
-            else if ($sql -> rowCount() < 0) {
+            else if ($sql -> rowCount() == 0) {
                 
                 try {
                 
-                    $consulta = "SELECT * from alumno WHERE usuario=:nombre AND password=:pass AND rol=:rol";
+                    $consulta = "SELECT * from profesor WHERE usuario=:nombre AND password=:pass AND rol=:rol";
 
                     $sql = $conn->prepare($consulta);
                     $sql->bindParam(":nombre", $nombre);
@@ -75,11 +75,26 @@ if ($_POST) {
                     echo $e->getMessage();
                 
                 }
+
+                if ($sql->rowCount() > 0) {
+            
+                    header('Location: profesor.php');
+                
+                } 
+                else {
+                    $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
+
+
+                    header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
+
+                    exit(); // Es crucial llamar a exit()
+                }
+                
             }
             
             else { 
                 // Autenticación fallida 
-                $_SESSION['error_message'] = 'Usuario o contraseña incorrectos.';
+                $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
 
 
                 header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 

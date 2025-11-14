@@ -13,17 +13,21 @@ session_start();
     <h2>Iniciar Sesión</h2>
     <p>Introduzca las credenciales para inciar sesión<p>
 
-    <form method="post" action="login.php">
+    <form method="post" action="login2.php">
+
         <label>Usuario:</label>
         <input type="text" name="usuario"><br>
         <label>Contraseña:</label>
+
         <input type="password" name="pass"><br><br>
         <label for="rol">Rol</label>
+
         <select name="rol" id="rol">
             <option value="profesor">Profesor</option>
             <option value="delegado">Delegado</option>
             <option value="estudiante">Estudiante</option>
         </select>
+        
         <input type="submit" value="Entrar">
     </form>
     
