@@ -8,15 +8,21 @@ if ($_POST) {
     $password = $_POST["pass"];
     $rol = $_POST["rol"];
 
-    try {
+  // Comprobamos que los campos no estén vacíos.
+        if (empty($nombre) || empty($password) || empty($rol)){
+                                               
+            $_SESSION['error_message'] = 'Campos vacíos';
+            header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión  
+            exit(); // Es crucial llamar a exit()
+        }
         
-        if (empty($nombre) || empty($password) || empty($rol))  // Comprobamos que los campos no estén vacíos.
+        else if (is_numeric($nombre) || !is_numeric($password)) {
 
-            throw new Exception ("Rellena el formulario");
-        
-        else if (is_numeric($nombre) || !is_numeric($password)) 
+            $_SESSION['error_message'] = 'Campos inválidos';
+            header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión  
+            exit(); // Es crucial llamar a exit()
+        } 
 
-            throw new Exception ("Campos inválidos");
 
         else {
 
@@ -64,6 +70,17 @@ if ($_POST) {
                         header('Location: profesor.php');
                     
                     } 
+
+                    else {
+
+                        $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
+                        
+                        // Autenticación fallida 
+                
+                        header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
+                
+                        exit(); // Es crucial llamar a exit()
+                    }
                 }
                 
             } catch (PDOException $e){ // Aunque el profesor no esté en esa tabla no lanza error.
@@ -71,25 +88,7 @@ if ($_POST) {
                 echo $e->getMessage();
                 
             }
-
-
-            
-            $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
-            
-            // Autenticación fallida 
-    
-            header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
-    
-            exit(); // Es crucial llamar a exit()
-
-           
-
-    } catch (Exception $e) {
-
-        echo "<p style='color: red; font-weight: bold;'>Error: " . htmlspecialchars($e -> getMessage()) . "</p>";
-        header ("refresh: 3 url=index.php");
-    }
-    
+   
     }
 }
 

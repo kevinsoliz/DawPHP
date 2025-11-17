@@ -33,6 +33,7 @@ session_start();
     
     <?php
     if (isset($_SESSION['error_message'])) {
+        
         echo '<p style="color:red;">' . $_SESSION['error_message'] . '</p>';
         unset($_SESSION['error_message']); // Limpia el mensaje de error después de mostrarlo
     }
