@@ -32,35 +32,23 @@ if ($_POST) {
                 $sql->bindParam(":rol", $rol);
             
                 $sql->execute();
-            
-            } catch (PDOException $e){ // Aunque el profesor no esté en esa tabla no lanza error.
-            
-                echo 'Te he pillado bacalao.'. $e->getMessage();
-            
-            }
-            
-            if ($sql->rowCount() > 0) {
-            
-                switch ($rol) {
-                    case 'profesor': 
-                        header('Location: profesor.php');
-                        break;
-                    case 'delegado':
-                        header ('Location: delegado.php');
-                        break;
-                    case 'estudiante':
-                        header ('Location: student.php');
-                        break;
-                    default:
-                        echo 'No forma parte del personal del instituto';
-                }
-            
-            } 
 
-            else if ($sql -> rowCount() == 0) {
+                if ($sql->rowCount() > 0) {
                 
-                try {
-                
+                    switch ($rol) {
+                        case 'delegado':
+                            header ('Location: delegado.php');
+                            break;
+                        case 'estudiante':
+                            header ('Location: student.php');
+                            break;
+                        default:
+                            echo 'No forma parte del personal del instituto';
+                    }
+                            
+                } 
+
+                else { 
                     $consulta = "SELECT * from profesor WHERE usuario=:nombre AND password=:pass AND rol=:rol";
 
                     $sql = $conn->prepare($consulta);
@@ -69,46 +57,40 @@ if ($_POST) {
                     $sql->bindParam(":rol", $rol);
                 
                     $sql->execute();
-                
-                } catch (PDOException $e){
-                
-                    echo $e->getMessage();
-                
-                }
 
-                if ($sql->rowCount() > 0) {
-            
-                    header('Location: profesor.php');
+                        
+                    if ($sql->rowCount() > 0) {
                 
-                } 
-                else {
-                    $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
-
-
-                    header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
-
-                    exit(); // Es crucial llamar a exit()
+                        header('Location: profesor.php');
+                    
+                    } 
                 }
                 
+            } catch (PDOException $e){ // Aunque el profesor no esté en esa tabla no lanza error.
+                
+                echo $e->getMessage();
+                
             }
+
+
             
-            else { 
-                // Autenticación fallida 
-                $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
-
-
-                header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
-
-                exit(); // Es crucial llamar a exit()
+            $_SESSION['error_message'] = 'Usuario, contraseña o rol incorrectos.';
             
-            }
-        }
+            // Autenticación fallida 
+    
+            header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
+    
+            exit(); // Es crucial llamar a exit()
+
+           
 
     } catch (Exception $e) {
 
         echo "<p style='color: red; font-weight: bold;'>Error: " . htmlspecialchars($e -> getMessage()) . "</p>";
         header ("refresh: 3 url=index.php");
     }
-
+    
+    }
 }
+
 
