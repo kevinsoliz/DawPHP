@@ -29,12 +29,15 @@ if(isset($_SESSION['usuario'])) { ?>
 
         <table>
             <tr>
-                <td colspan="4"><label>Gestión de usuarios</label></td>
+                <th colspan="4"><label>Gestión de usuarios</label></th>
             </tr>
 
                 <tr>
-                    <td><label>Usuario</label></td><td><input type="text" value="" maxlength="50" name="txtcodigo"></td>
+                    <td><label>Usuario</label></td><td><input type="text" value="" maxlength="50" name="  "></td>
                     <td><label>Contraseña</label></td><td><input type="text" value="" maxlength="50" name="txtedad"></td>
+                </tr>
+                <tr>
+                    <td><label>Rol</label></td><td><input type="text" value="" maxlength="50" name="txtedad"></td>
                 </tr>
 
                 <tr><td colspan="4" align="center">
@@ -44,17 +47,13 @@ if(isset($_SESSION['usuario'])) { ?>
                 <input type="submit" value="Eliminar" name="eliminardatos">
                 </td>
                 </tr>
-
-        </table>
-
-        <table>
             <tr>
                 <th colspan="4">Listado de Alumnos</th>
             </tr>
             <tr>
                 <th>Usuario</th>
                 <th>Contraseña</th>
-                <th>Rol</th>
+                <th colspan='2'>Rol</th>
             </tr>
         
             <?php
@@ -67,11 +66,14 @@ if(isset($_SESSION['usuario'])) { ?>
                 <tr>
                 <td> " . $usuario['usuario'] .
                 "<td>" . $usuario['password'] .
-                "<td>" . $usuario['rol'] .
+                "<td colspan='2'>" . $usuario['rol'] .
                 "</tr> ";
             }
             ?>
+
         </table>
+
+        
         <br>
         <a href="logout.php">Volver</a>
     </body>
