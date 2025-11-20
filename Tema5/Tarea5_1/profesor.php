@@ -11,6 +11,7 @@ if(isset($_SESSION['usuario'])) { ?>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"> -->
         <style>
             table, tr, th, td{
                 border: 1px solid grey; 
@@ -26,6 +27,7 @@ if(isset($_SESSION['usuario'])) { ?>
     <body>
         <h1>Esta es la web del profesor</h1>
         <h2>Bienvenida <?php echo $_SESSION['usuario']; ?></h2>
+
     <form action="getuser.php" method='post'>
         <table>
             <tr>
@@ -42,10 +44,10 @@ if(isset($_SESSION['usuario'])) { ?>
 
                 <tr><td colspan="4" align="center">
 
-                    <button type='submit' name='insertar'>Insertar</button>
-                    <button type='submit' name='modificar'>Modificar</button>
-                    <button type='submit'name='eliminar'>Eliminar</button>
-                    <button type='submit'name='volver'>Volver</button>
+                    <button type='submit' name='consulta'  value='insertar'>Insertar</button>
+                    <button type='submit' name='consulta' value='modificar'>Modificar</button>
+                    <button type='submit'name='consulta' value='eliminar'>Eliminar</button>
+                    <button type='submit'name='consulta' value='volver'>Volver</button>
                 
                     <!-- <input type="submit" value="volver" name="limpiardatos" >
                     <input type="submit" value="insertar" name="grabardatos" >
@@ -80,14 +82,6 @@ if(isset($_SESSION['usuario'])) { ?>
 
         </table>
     </form>
-        
-   <?php
-    if (isset($_SESSION['error_message'])) {
-        
-        echo '<p style="color:red;">' . $_SESSION['error_message'] . '</p>';
-        unset($_SESSION['error_message']); // Limpia el mensaje de error después de mostrarlo
-    }
-    ?>
        
     </body>
     </html>
