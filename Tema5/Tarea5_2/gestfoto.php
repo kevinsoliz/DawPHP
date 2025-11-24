@@ -16,7 +16,7 @@ if($_POST) {
                 // Comprobamos que los campos no estén vacíos.
                 if (empty($titulo) || empty($tematica) || empty($size)){
                                                 
-                  echo 'Inserta los campos requeridos.';
+                  echo 'Rellene los campos requeridos para insertar nuevo.';
                     header('refresh:3 url=fotografo.php'); // Redirigir de vuelta al formulario de inicio de sesión  
                     exit(); // Es crucial llamar a exit()
 

@@ -15,10 +15,14 @@ session_start();
 
     <form method="post" action="login.php">
 
-        <label>Usuario:</label>
-        <input type="text" name="usuario">
+        <label>Usuario</label>
+        <input type="text" name="usuario"><br>
+
+        <label for="password">Contraseña</label>
+        <input type="text" name="password" id="password">
         <br>
-        <input type="submit" value="Entrar">
+        
+        <button type="submit">Entrar</button>
     </form>
     
     <?php
