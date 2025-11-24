@@ -4,11 +4,13 @@ include('conexion.php');
 
 if ($_POST) {
     
-    $nombre = $_POST["usuario"];
+    $usuario = $_POST["usuario"];
     $password = $_POST['password'];
 
+
+
   // Comprobamos que los campos no estén vacíos.
-        if (empty($nombre) || empty($password)){
+        if (empty($usuario) || empty($password)){
                                                
             $_SESSION['error_message'] = 'Campos vacíos';
             header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión  
@@ -17,14 +19,16 @@ if ($_POST) {
 
         else {
 
-            $_SESSION['usuario'] = $nombre;
+            $_SESSION['usuario'] = $usuario;
 
             try {
 
-                    $consulta = "SELECT * from cliente WHERE nombre=:nombre";
+                        $consulta = "SELECT * from alumnos WHERE usuario = :nombre AND password = :password";
 
                         $sql = $conn->prepare($consulta);
-                        $sql->bindParam(":nombre", $nombre);
+                        $sql->bindParam(":nombre", $usuario);
+                        $sql -> bindParam(":password", $password);
+                     
                     
                         $sql->execute();
 
@@ -34,7 +38,7 @@ if ($_POST) {
                         }
 
                         else { 
-                                $_SESSION['error_message'] = 'Usuario, o rol incorrectos.';
+                                $_SESSION['error_message'] = $usuario;
                                 
                                 // Autenticación fallida 
                                 header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 

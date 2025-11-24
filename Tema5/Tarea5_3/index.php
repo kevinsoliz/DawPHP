@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once 'conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,7 @@ session_start();
         unset($_SESSION['error_message']); // Limpia el mensaje de error después de mostrarlo
     }
     ?>
+    
 
 </body>
 </html>

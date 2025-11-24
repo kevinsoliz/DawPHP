@@ -50,7 +50,7 @@ if ($_POST) {
 
                             else {
 
-                                $_SESSION['error_message'] = 'Usuario, o rol incorrectos.';
+                                $_SESSION['error_message'] = 'Usuario incorrecto.';
                                 
                                 // Autenticación fallida 
                                 header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
