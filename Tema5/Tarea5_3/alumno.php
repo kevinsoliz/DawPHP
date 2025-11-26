@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include 'conexion.php';
+include 'funciones.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,25 +38,31 @@ include 'conexion.php';
         
             <?php
 
-                $consulta = "SELECT usuario from alumnos";
-
-                $sql = $conn->prepare($consulta);
-                
-            
+            $consulta = "SELECT usuario from alumnos";
+            $sql = $conn->prepare($consulta);
             $sql->execute();
-            $alumno = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $alumnos = $sql->fetchAll(PDO::FETCH_ASSOC);
+           
+            $datos = crearDatosAlumno($alumnos);
 
-            foreach ($alumno as $usuario){
+            foreach ($datos as $alumno){
                 echo "
                 <tr>
                     <td> 
-                        <label for='alumno'>" . $usuario['usuario'] . "</label>
-                        <input type='radio' name='alumno' id='alumno' value='". $usuario['usuario'] . "' >
+                        <label for='alumno'>" . $alumno['alumno'] . "</label>
+                        <input type='radio' name='alumno' id='alumno' value='". $alumno['alumno'] . "' >
                     </td>
-                    <td>" . $_SESSION['votos'] ."</td>
+                    <td>" . $alumno['votos'] ."</td>
 
                 </tr> ";
             }
+
+
+            foreach ($datos as $alumno) {
+                $alumno['votos'] = 20;
+            }
+
+            print_r(dta)
             ?>
     </table>
     <br>
