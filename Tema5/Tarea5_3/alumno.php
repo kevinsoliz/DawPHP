@@ -38,31 +38,30 @@ include 'funciones.php';
         
             <?php
 
-            $consulta = "SELECT usuario from alumnos";
+           $consulta = "SELECT usuario from alumnos";
             $sql = $conn->prepare($consulta);
             $sql->execute();
             $alumnos = $sql->fetchAll(PDO::FETCH_ASSOC);
            
-            $datos = crearDatosAlumno($alumnos);
+            // $_SESSION['datos'] = crearDatosAlumno($alumnos);
 
-            foreach ($datos as $alumno){
-                echo "
-                <tr>
-                    <td> 
-                        <label for='alumno'>" . $alumno['alumno'] . "</label>
-                        <input type='radio' name='alumno' id='alumno' value='". $alumno['alumno'] . "' >
-                    </td>
-                    <td>" . $alumno['votos'] ."</td>
+            //     foreach ($_SESSION['datos'] as $alumno){
+            //         echo "
+            //         <tr>
+            //             <td> 
+            //                 <label for='alumno'>" . $alumno['alumno'] . "</label>
+            //                 <input type='radio' name='alumno' id='alumno' value='". $alumno['alumno'] . "' >
+            //             </td>
+            //             <td>" . $alumno['votos'] ."</td>
+    
+            //         </tr> ";
+            //     }
+            // El problema de esta logica es que cuando la página se cargue la función crear datos siempre 
+            // inicializará los votos a 0. Aunque modifique los votos en otra página, esa función lo sobreescribe todo a 0.
 
-                </tr> ";
-            }
 
-
-            foreach ($datos as $alumno) {
-                $alumno['votos'] = 20;
-            }
-
-            print_r(dta)
+            
+         
             ?>
     </table>
     <br>
