@@ -1,6 +1,7 @@
 <?php
 session_start();
-include('conexion.php');
+include 'conexion.php';
+include 'funciones.php';
 
 if ($_POST) {
 
@@ -34,6 +35,15 @@ if ($_POST) {
             
 
             if ($sql->rowCount() > 0) {
+
+                $consulta = "SELECT usuario from alumnos";
+                $sql = $conn->prepare($consulta);
+                $sql->execute();
+
+                $usuarios = $sql->fetchAll(PDO::FETCH_ASSOC);
+                $_SESSION['datos'] = crearDatosAlumno($usuarios);
+                $_SESSION['votado'] = false;
+
                 header('Location: alumno.php');
                 exit();
             } else {

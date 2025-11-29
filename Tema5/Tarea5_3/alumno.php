@@ -42,32 +42,7 @@ if (isset($_SESSION['usuario'])) { ?>
  
 
                 <?php
-                if (!isset($_SESSION['datos'])) {
-
-                    $consulta = "SELECT usuario from alumnos";
-                    $sql = $conn->prepare($consulta);
-                    $sql->execute();
-                    $_SESSION['alumnos'] = $sql->fetchAll(PDO::FETCH_ASSOC);
-    
-    
-    
-    
-                    foreach ($_SESSION['alumnos'] as $alumno) {
-                        echo "
-                        <tr>
-                            <td> 
-                                <label for='alumno'>" . $alumno['usuario'] . "</label>
-                                <input type='radio' name='alumno' id='alumno' value='" . $alumno['alumno'] . "' >
-                            </td>
-                            <td>0</td>
         
-                        </tr> ";
-                    }
-                    //Creo el array de datos con los que se van a trabajar
-                    $_SESSION['datos'] = crearDatosAlumno($_SESSION['alumnos']);
-                   
-                }  
-                else {
                     foreach ($_SESSION['datos'] as $clave => $valor) {
                         echo "
                         <tr>
@@ -79,7 +54,7 @@ if (isset($_SESSION['usuario'])) { ?>
         
                         </tr> ";
                     }
-                }  
+                
 
                 ?>
             </table>
