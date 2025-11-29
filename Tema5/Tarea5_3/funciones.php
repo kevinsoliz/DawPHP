@@ -4,15 +4,12 @@ function crearDatosAlumno($usuarios) {
     
     $datos = [];
     foreach($usuarios as $usuario) {
-        $datos[] = [
-            'alumno' => $usuario['usuario'],
-            'votos' => 0
-        ];
+        $datos[$usuario['usuario']] = 0;
     }
 
     return $datos;
 }
 
 function sumarVoto($alumno) {
-    $alumno['votos'] += 1;
+    $_SESSION['datos'][$alumno] += 1;
 }

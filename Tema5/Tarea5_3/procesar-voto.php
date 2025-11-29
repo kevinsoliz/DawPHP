@@ -7,18 +7,24 @@ include 'funciones.php';
 
 if($_POST) {
     $delegado = $_POST['alumno'];
-    
-   foreach ($_SESSION['alumnos'] as $alumno){
-          echo $alumno['usuario'];        
+
+    if($delegado != $_SESSION['usuario']){
+        //sumo un voto:
+        sumarVoto($delegado);
+        //ordeno:
+        arsort($_SESSION['datos']);
+        //redirijo:
+        header('Location: alumno.php');
+        exit();
+    }
+    else {
+        $_SESSION['error'] = 'No puedes votarte a ti mismo.';
+        header('Location: alumno.php');
+        exit();
     }
             
-   // un array para los alumnos y otro para los votos
-   // pero para poder ordenarlo, no puedo iterar sobre el array que obtengo de la base de datos, 
-   // los datos de la base de datos deberia guardarlos en otro array con el que pueda trabajar.         
-   
-
-       
-    
-   
-
+}
+else {
+    header('Location: alumno.php');
+    exit();
 }

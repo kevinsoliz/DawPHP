@@ -1,9 +1,11 @@
 <?php
+
+
 $host = 'localhost';
-$dbname = 'instituto';
+$dbname = 'insti';
 $username = 'root';
 $password = '';
-
+echo "Intentando conectar a la base de datos..." . $dbname;
 
 try {
 
@@ -11,7 +13,7 @@ try {
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
+    echo "Conexión exitosa a la base de datos." . $dbname;
 } catch (PDOException $pe) {
 
     die("Could not connect to the database $dbname :" . $pe->getMessage());
