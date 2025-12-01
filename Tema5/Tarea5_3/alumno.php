@@ -63,7 +63,13 @@ if (isset($_SESSION['usuario'])) { ?>
         </form>
         <br>
         <a href="logout.php">Volver</a>
-        <p><?php echo $_SESSION['error']; ?> </p>
+         <?php
+            if (isset($_SESSION['error'])) {
+                
+                echo '<p style="color:red;">' . $_SESSION['error'] . '</p>';
+                unset($_SESSION['error']); // Limpia el mensaje de error después de mostrarlo
+            }
+            ?>
     </body>
 
     </html>

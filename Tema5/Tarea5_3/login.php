@@ -47,7 +47,7 @@ if ($_POST) {
                 header('Location: alumno.php');
                 exit();
             } else {
-                $_SESSION['error_message'] = $usuario;
+                $_SESSION['error_message'] = "Usuario o contraseña incorrectos.";
 
                 // Autenticación fallida 
                 header('Location: index.php'); // Redirigir de vuelta al formulario de inicio de sesión 
