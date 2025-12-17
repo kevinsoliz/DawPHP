@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fecha</h1>
+    <h2 id="resultado"></h2>
+
+</body>
+<script>
+   
+        setInterval( () => {
+
+            let xhr = new XMLHttpRequest();
+    
+            xhr.open("GET", "endpoint.php", true);
+    
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    
+                    document.getElementById("resultado").innerText = xhr.responseText;
+                }
+            };
+    
+            xhr.send();
+        }, 1000)
+       
+
+</script>
+</html>
