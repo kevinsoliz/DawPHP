@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <br><br>
+        <label for="cif">CIF</label>
+        <input type="text" name="cif" id="cif">
+        <br><br>
+        <label for="direccion">Dirección</label>
+        <input type="text" name="direccion" id="direccion">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+<script>
+    document.getElementById('form').addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        let xhr = new XMLHttpRequest;
+        xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    
+                    document.getElementById("resultado").innerHTML = xhr.responseText;
+                }
+            };
+        xhr.open('POST', 'mostrar.php', true);
+        xhr.send(new FormData(document.getElementById("form")));
+    })
+</script>
+</html>

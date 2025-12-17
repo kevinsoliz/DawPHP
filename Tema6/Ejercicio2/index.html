@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" action="">
+        <label for="num1">Número 1</label>
+        <input type="text" id="num1" name="num1">
+        <br><br>
+        <label for="num2">Número 2</label>
+        <input type="text" id="num2" name="num2">
+        <br><br>
+        <button type="submit">Calcular</button>
+        <br><br>
+        <input type="text" id="resultado" readonly>
+    </form>
+</body>
+<script>
+    document.getElementById('form').addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        let xhr = new XMLHttpRequest;
+        xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    
+                    document.getElementById("resultado").value = xhr.responseText;
+                }
+            };
+        xhr.open('POST', 'multiplicar.php', true);
+        xhr.send(new FormData(document.getElementById("form")));
+    })
+</script>
+</html>
