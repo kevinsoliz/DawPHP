@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+</body>
+<script>
+    function lineas_producto() {
+        
+         let xhr = new XMLHttpRequest();
+    
+            xhr.open("GET", "datos_lineas_json.php", true);
+    
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+
+                    let datos = JSON.parse(xhr.responseText);
+                    console.log(datos);
+
+                    for (let i = 0; i < datos.length; i++){
+
+                        let li = document.createElement('li');
+                        li.textContent = datos[i].nombre;
+                        
+                        document.querySelector('ul').appendChild(li);
+                    }
+                
+                }
+            };
+    
+            xhr.send();
+    }
+
+    lineas_producto();
+</script>
+</html>
