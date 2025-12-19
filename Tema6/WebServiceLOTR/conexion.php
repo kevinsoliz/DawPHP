@@ -2,7 +2,7 @@
 
 
 $host = 'localhost';
-$dbname = 'instituto';
+$dbname = 'mordor';
 $username = 'root';
 $password = '';
 
